@@ -11,6 +11,6 @@
 8)main track: generate training data [PRFQE+BM25-1+BM25-2 -> 2000 items]+trackfeatures+playlist features+track-playlistfeatures+w2v features
 9)main track: generate test data(and challenge data)
 10)param sweep script to find right lambda mart model [train, test and evaluate]
-11)creative track: generate training data [PRFQE+BM25-1+BM25-2 -> 2000 items]+trackfeatures+playlist features+track-playlistfeatures+w2v features+track features from spotify api
+11)creative track: generate training data [PRFQE+BM25-1+BM25-2 -> 2000 items]+trackfeatures+playlist features+track-playlistfeatures+w2v features+track features from spotify api --> -missingzero
 12)run built model on  challenge data
 13)prepare submission(popular items when playlist size <500)
