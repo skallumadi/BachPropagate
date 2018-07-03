@@ -5,9 +5,10 @@ import re
 import collections
 import os
 from utils import write_to_pickle
+from utils_text import normalize_name_title
 
-path = '../data/raw'
-bipartite_path = '..data/bipartite_train'
+path = 'data/raw'
+bipartite_path = 'data/bipartite_challenge'
 
 # Generate BiPartites and save as Objects.
 
@@ -17,14 +18,28 @@ count = 0
 
 AllDataPidTitleBipartite = {}
 AllDataPidTrackListBipartite = {}
-AllDataAlbumTrackSetBipartite = {}
-AllDataArtistTrackSetBipartite = {}
+
 AllDataTrackArtistBipartite = {}
 AllDataTrackAlbumBipartite = {}
 AllDataTrackNameBipartite = {}
 AllDataAlbumNameBipartite = {}
 AllDataAritstNameBipartite = {}
 AllDataPidDescriptionBipartite = {}
+
+AlbumTrackSetBipartite = {}
+ArtistTrackSetBipartite = {}
+AllDataAlbumTrackSetBipartite = {}
+AllDataArtistTrackSetBipartite = {}
+
+TrackIdTitle = {}
+TitleTrackId = {}
+
+TrackIdArtistName = {}
+TrackIdAbumName = {}
+TrackIdTrackName = {}
+
+AlbumTrackSetBipartiteNorm = {}
+ArtistTrackSetBipartiteNorm = {}
 
 # read data in
 for filename in sorted(filenames):
@@ -38,6 +53,10 @@ for filename in sorted(filenames):
             playlistId = str(playlist['pid'])
             playlistTracks = []
             playlistTitle = playlist['name']
+            pname = playlist['name']
+            normpName = normalize_name_title(pname).strip()
+            if normpName == '':
+                normpName ='emptyTitle
             for track in playlist['tracks']:
                 trackId = track['track_uri']
                 trackName = track['track_name']
@@ -55,6 +74,16 @@ for filename in sorted(filenames):
                 AllDataTrackNameBipartite[trackId] = trackName
                 AllDataAlbumNameBipartite[trackAlbumId] = trackAlbumName
                 AllDataAritstNameBipartite[trackArtistId] = trackArtistName
+
+                TrackIdTitle.setdefault(
+                    trackId, []).append(normpName)  # --Done
+                TitleTrackId.setdefault(
+                    normpName, []).append(trackId)  # --Done
+
+                TrackIdArtistName[trackId] = trackArtistName  # --meta2
+                TrackIdAbumName[trackId] = trackAlbumName  # --meta2
+                TrackIdTrackName[trackId] = trackName  # --meta2
+
             AllDataPidTitleBipartite[playlistId] = playlistTitle
             AllDataPidTrackListBipartite[playlistId] = playlistTracks
             if 'description' in playlist:
@@ -64,10 +93,27 @@ for filename in sorted(filenames):
                 print 'processed' + str(count)
 
 
+write_to_pickle(bipartite_path, 'AllDataPidTitleBipartite.pkl',
+                AllDataPidTitleBipartite)
+write_to_pickle(bipartite_path, 'AllDataPidTrackListBipartite.pkl',
+                AllDataPidTrackListBipartite)
+write_to_pickle(bipartite_path, 'AllDataAlbumTrackSetBipartite.pkl',
+                AllDataAlbumTrackSetBipartite)
 write_to_pickle(bipartite_path, 'AllDataArtistTrackSetBipartite.pkl',
                 AllDataArtistTrackSetBipartite)
-write_to_pickle(bipartite_path, 'AllDataTrackArtistBipartite.pkl',
-                AllDataTrackArtistBipartite)
+write_to_pickle(bipartite_path, 'TitleTrackId.pkl',
+                TitleTrackId)
+write_to_pickle(bipartite_path, 'TrackIdTitle.pkl',
+                TrackIdTitle)
+write_to_pickle(bipartite_path, 'TrackIdTrackName.pkl',
+                TrackIdTrackName)
+write_to_pickle(bipartite_path, 'TrackIdAbumName.pkl',
+                TrackIdAbumName)
+write_to_pickle(bipartite_path, 'TrackIdArtistName.pkl',
+                TrackIdArtistName)
+
+
+# todo: check if used.. or delete
 write_to_pickle(bipartite_path, 'AllDataTrackAlbumBipartite.pkl',
                 AllDataTrackAlbumBipartite)
 write_to_pickle(bipartite_path, 'AllDataTrackNameBipartite.pkl',
