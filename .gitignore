@@ -1,3 +1,4 @@
 data/*.json
 data/raw/*.json
 data/bipartite_train/*.pkl
+data/bipartite_challenge/*.pkl
