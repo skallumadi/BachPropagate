@@ -7,7 +7,7 @@ def write_to_pickle(path, filename, data):
     """
     write to data to pickle file
     """
-    fullpath = os.sep.join(path, filename)
+    fullpath = os.sep.join((path, filename))
     fileObj = open(fullpath, 'w')
     pickle.dump(data, fileObj)
     fileObj.close()
@@ -30,7 +30,7 @@ def write_index(path, filename, indexDocsList):
     """
     count = 0
     errors = []
-    fullpath = os.sep.join(path, filename)
+    fullpath = os.sep.join((path, filename))
     with codecs.open(fullpath, "w", encoding='utf-8') as f:
         for line in indexDocsList:
             try:
@@ -40,3 +40,6 @@ def write_index(path, filename, indexDocsList):
                 errors.append(line)
     print count
     return errors
+
+
+# normalize text

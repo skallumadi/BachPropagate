@@ -56,7 +56,7 @@ for filename in sorted(filenames):
             pname = playlist['name']
             normpName = normalize_name_title(pname).strip()
             if normpName == '':
-                normpName ='emptyTitle
+                normpName = 'emptyTitle'
             for track in playlist['tracks']:
                 trackId = track['track_uri']
                 trackName = track['track_name']
