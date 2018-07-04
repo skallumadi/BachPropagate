@@ -11,6 +11,7 @@
 3. Generate pkl where necessary-> pkl for trackfeatures and details; pid track mapping; splits pkls; most popular tracks
 4. clean the titles, *provide stop list *provide synonyms list, bigrams
 5. create background index documents, script to generate docs; config file to create indexes. 3 indexes -> Meta1, Meta2 and PRFQE
+    1. run python build_indri_index_challenge.py
 6. create queries for these indexes for train, test and challenge
 7. script to generate results for the queries
 8. script to parse these results 2 different formats(BM25 vs QE)
