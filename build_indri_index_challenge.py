@@ -11,10 +11,10 @@ bipartite_path = 'data/bipartite_challenge'
 index_path = 'data/indexes_challenge'
 
 PidTitleBipartite = pickle.load(
-    open(os.sep.join(bipartite_path, 'AllDataPidTitleBipartite.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'AllDataPidTitleBipartite.pkl')), 'rb'))
 
 PidTrackListBipartite = pickle.load(
-    open(os.sep.join(bipartite_path, 'PidTrackListBipartite.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'AllDataPidTrackListBipartite.pkl')), 'rb'))
 
 # buildIndexPidAsDocTracksAsTerms
 
@@ -31,11 +31,11 @@ write_index(index_path, index_name, pidDocs)
 # IndAlbumAsDocNormTracksAsTerms
 
 AllDataAlbumTrackSetBipartite = pickle.load(
-    open(os.sep.join(bipartite_path, 'AllDataAlbumTrackSetBipartite.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'AllDataAlbumTrackSetBipartite.pkl')), 'rb'))
 
 index_name_norm = '1MIndexAlbumAsDocNormTracksListAsTerms.txt'
 
-albumDocsNormalbumDoc = []
+albumDocsNorm = []
 albumDocsNonNorm = []
 for albumid, tracks in AllDataAlbumTrackSetBipartite.items():
     normTracks = list(set(tracks))
@@ -48,7 +48,7 @@ write_index(index_path, index_name_norm, albumDocsNorm)
 
 # IndTitsAsDocNormTracksAsTerms.txt
 AllDataArtistTrackSetBipartite = pickle.load(
-    open(os.sep.join(bipartite_path, 'AllDataArtistTrackSetBipartite.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'AllDataArtistTrackSetBipartite.pkl')), 'rb'))
 
 index_name_norm = '1MIndexArtistsAsDocNormTracksSetAsTerms.txt'
 
@@ -66,7 +66,7 @@ write_index(index_path, index_name_norm, artistDocsNorm)
 
 # normalized text stuff
 TitleTrackId = pickle.load(
-    open(os.sep.join(bipartite_path, 'TitleTrackId.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'TitleTrackId.pkl')), 'rb'))
 
 index_name_norm = '1MIndexTitlesAsDocNormTracksSetAsTerms.txt'
 index_name = '1MIndexTitlesAsDocNonNormTracksListAsTerms.txt'
@@ -85,7 +85,7 @@ write_index(index_path, index_name, titletDocsNonNorm)
 
 
 TrackIdTitle = pickle.load(
-    open(os.sep.join(bipartite_path, 'TrackIdTitle.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'TrackIdTitle.pkl')), 'rb'))
 
 index_name = '1MIndexTracksAsDocTitlesAsTerms.txt'
 
@@ -102,11 +102,11 @@ write_index(index_path, index_name, trackTitleDocs)
 
 index_name = '1MIndexTracksAsDocMeta2AsTerms.txt'
 TrackIdTrackName = pickle.load(
-    open(os.sep.join(bipartite_path, 'TrackIdTrackName.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'TrackIdTrackName.pkl')), 'rb'))
 TrackIdAbumName = pickle.load(
-    open(os.sep.join(bipartite_path, 'TrackIdAbumName.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'TrackIdAbumName.pkl')), 'rb'))
 TrackIdArtistName = pickle.load(
-    open(os.sep.join(bipartite_path, 'TrackIdArtistName.pkl'), 'rb'))
+    open(os.sep.join((bipartite_path, 'TrackIdArtistName.pkl')), 'rb'))
 
 meta2trackDocs = []
 for trackId, trackname in TrackIdTrackName.items():

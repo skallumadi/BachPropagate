@@ -3,6 +3,8 @@ data/raw/*.json
 data/bipartite_train/*.pkl
 data/bipartite_challenge/*.pkl
 
+data/indexes_challenge/*.txt
+data/indexes_train/*.txt
 
 #editor stuff
 .DS_Store
