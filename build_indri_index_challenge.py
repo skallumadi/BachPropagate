@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import pickle
 import os
-from utils import write_index
-from utils_text import title_plus_bigrams
+from utils import write_index, entry
+from utils_text import title_plus_bigrams, normalize_name_title
 
 # IndPidAsDocTracksAsTerms.txt
 # get title bipartite
@@ -18,7 +18,7 @@ PidTrackListBipartite = pickle.load(
 
 # buildIndexPidAsDocTracksAsTerms
 
-index_name = 'All1MIndexPidAsDocTracksAsTerms.txt'
+index_name = '1MIndexPidAsDocTracksAsTerms.txt'
 
 pidDocs = []
 for pid in PidTitleBipartite:
@@ -111,9 +111,9 @@ TrackIdArtistName = pickle.load(
 meta2trackDocs = []
 for trackId, trackname in TrackIdTrackName.items():
     truncTrackId = trackId.replace('spotify:track:', '')
-    normTrackName = normalize_nameTitle(trackname)
-    normAlbumName = normalize_nameTitle(TrackIdAbumName[trackId])
-    normArtistName = normalize_nameTitle(TrackIdArtistName[trackId])
+    normTrackName = normalize_name_title(trackname)
+    normAlbumName = normalize_name_title(TrackIdAbumName[trackId])
+    normArtistName = normalize_name_title(TrackIdArtistName[trackId])
     meta2trackDocs.append(
         entry(truncTrackId, normTrackName + ' ' + normAlbumName + ' ' + normArtistName))
 

@@ -44,6 +44,7 @@ ArtistTrackSetBipartiteNorm = {}
 # read data in
 for filename in sorted(filenames):
     if filename.startswith("mpd.slice.") and filename.endswith(".json"):
+        # if filename.endswith(".json"): for testing on the 1000 ds
         fullpath = os.sep.join((path, filename))
         f = open(fullpath)
         js = f.read()

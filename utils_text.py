@@ -174,8 +174,8 @@ import re
 
 def normalize_name_title(name):
     name = name.lower()
-    name = NormalizeDates(name)
-    name = handleEmojis(name)
+    name = normalize_dates(name)
+    name = handle_emojis(name)
     name = name.replace('happysmile', 'happy smile')
     name = re.sub(r"[.,\/#\'?\&\-!$%\^\*;:{}=\_`~()@]", ' ', name)
     name = re.sub(r'\s+', ' ', name).strip()

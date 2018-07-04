@@ -1,5 +1,6 @@
 data/*.json
 data/raw/*.json
+data/challenge/*.json
 data/bipartite_train/*.pkl
 data/bipartite_challenge/*.pkl
 
@@ -8,3 +9,9 @@ data/indexes_train/*.txt
 
 #editor stuff
 .DS_Store
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
