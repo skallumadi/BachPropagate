@@ -12,7 +12,7 @@ cmd2==0.7.7
 configparser==3.5.0
 cssselect==1.0.1
 cycler==0.10.0
-dask==0.15.3
+dask==2021.10.0
 decorator==4.1.2
 distributed==1.19.1
 entrypoints==0.2.3
