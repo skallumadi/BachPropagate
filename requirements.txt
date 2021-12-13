@@ -40,7 +40,7 @@ jsonschema==2.6.0
 kaggle-cli==0.12.10
 #kaggle-data==0.2
 locket==0.2.0
-lxml==4.1.0
+lxml==4.6.5
 MarkupSafe==1.0
 matplotlib==2.1.0
 MechanicalSoup==0.8.0
