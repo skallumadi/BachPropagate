@@ -51,7 +51,7 @@ nbformat==4.4.0
 nltk==3.3
 notebook==5.0.0
 numexpr==2.6.2
-numpy==1.13.3
+numpy==1.22.0
 olefile==0.44
 opencv-python==3.3.0.10
 pandas==0.20.3
