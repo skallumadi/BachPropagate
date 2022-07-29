@@ -44,7 +44,7 @@ lxml==4.1.0
 MarkupSafe==1.0
 matplotlib==2.1.0
 MechanicalSoup==0.8.0
-mistune==0.7.4
+mistune==2.0.3
 msgpack-python==0.4.8
 nbconvert==5.3.1
 nbformat==4.4.0
