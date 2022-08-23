@@ -46,7 +46,7 @@ matplotlib==2.1.0
 MechanicalSoup==0.8.0
 mistune==0.7.4
 msgpack-python==0.4.8
-nbconvert==5.3.1
+nbconvert==6.5.1
 nbformat==4.4.0
 nltk==3.3
 notebook==5.0.0
